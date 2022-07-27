@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.PlatformTransactionManager;
@@ -81,6 +82,16 @@ public class SpringConfig {
 		transactionManager.setSessionFactory(sessionFactory().getObject());
 		
 		return transactionManager;
+	}
+	
+//	TEMPLATE SET FOR HIBERNATE
+	@Bean
+	public HibernateTemplate hibernateTemplate() {
+		HibernateTemplate template = new HibernateTemplate();
+		
+		template.setSessionFactory(sessionFactory().getObject());
+		
+		return template;
 	}
 	
 //	HIBERNATE PROPERTIES
