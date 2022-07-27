@@ -25,7 +25,8 @@ public class SpringConfig {
 	public InternalResourceViewResolver viewResolver() {
 		InternalResourceViewResolver vr = new InternalResourceViewResolver();
 
-		vr.setPrefix("/WEB-INF/");
+//		get all the view templates from views folder
+		vr.setPrefix("/WEB-INF/views/");
 		vr.setSuffix(".jsp");
 
 		return vr;
